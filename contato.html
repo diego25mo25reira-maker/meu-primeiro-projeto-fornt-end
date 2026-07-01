@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Meu Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho padrão (Destaque para o link Contato) -->
+    <header>
+        <div class="logo">Portfólio<span>Profissional</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre Mim</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal do Formulário -->
+    <main class="container">
+        <section class="secao-contato">
+            <h2>Entre em Contato</h2>
+            <p>Tem alguma proposta de projeto, vaga de emprego na área administrativa ou alguma dúvida? Preencha o formulário abaixo!</p>
+            
+            <!-- Formulário de Contato -->
+            <form id="form-contato" novalidate>
+                
+                <!-- Campo Nome -->
+                <div class="campo-grupo">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+                    <span class="erro-mensagem" id="erro-nome"></span>
+                </div>
+
+                <!-- Campo E-mail -->
+                <div class="campo-grupo">
+                    <label for="email">E-mail Corporativo ou Pessoal:</label>
+                    <input type="email" id="email" name="email" placeholder="exemplo@email.com">
+                    <span class="erro-mensagem" id="erro-email"></span>
+                </div>
+
+                <!-- Campo Mensagem -->
+                <div class="campo-grupo">
+                    <label for="mensagem">Sua Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Como posso te ajudar?"></textarea>
+                    <span class="erro-mensagem" id="erro-mensagem-texto"></span>
+                </div>
+
+                <!-- Botão de Envio -->
+                <button type="submit" id="btn-enviar">Enviar Mensagem</button>
+                
+                <!-- Mensagem de Sucesso (Fica oculta até o formulário ser válido) -->
+                <div id="sucesso-mensagem" class="sucesso-oculto"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Desenvolvido para a Atividade M.A.P.A. | Programação Front-End</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

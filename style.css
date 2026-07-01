@@ -1,0 +1,338 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (Padrão Visual)
+   ========================================================================== */
+
+/* Variáveis para facilitar a manutenção das cores do site */
+:root {
+    --cor-principal: #1A252F;   /* Azul Escuro / Corporativo */
+    --cor-destaque: #3498DB;    /* Azul Claro / Link Actives */
+    --cor-fundo: #F8F9FA;       /* Cinza Bem Claro / Fundo */
+    --cor-texto: #333333;       /* Grafite / Leitura Confortável */
+    --cor-erro: #E74C3C;        /* Vermelho / Mensagens de Erro */
+    --cor-sucesso: #2ECC71;     /* Verde / Mensagens de Sucesso */
+}
+
+/* Reset Padrão: Garante que o site apareça igual em qualquer navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o rodapé fique sempre embaixo */
+}
+
+/* Container para centralizar o conteúdo das páginas */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1; /* Empurra o footer para o final da tela */
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E MENU DE NAVEGAÇÃO (FLEXBOX)
+   ========================================================================== */
+header {
+    background-color: var(--cor-principal);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between; /* Logo na esquerda, Menu na direita */
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--cor-destaque);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Espaçamento entre os links */
+}
+
+.nav-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Efeito de passar o mouse e página ativa */
+.nav-links a:hover, .nav-links a.active {
+    color: var(--cor-destaque);
+    border-bottom: 2px solid var(--cor-destaque);
+}
+
+/* ==========================================================================
+   3. RODAPÉ
+   ========================================================================== */
+footer {
+    background-color: var(--cor-principal);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    border-top: 3px solid var(--cor-destaque);
+}
+
+/* ==========================================================================
+   4. ESTILIZAÇÃO DAS PÁGINAS (Home, Sobre e Projetos)
+   ========================================================================== */
+
+/* Página Inicial (Home) - Seção Hero */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-top: 40px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    color: var(--cor-principal);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+/* Botão de Alternar Tema (Efeito JavaScript) */
+#btn-tema {
+    padding: 12px 24px;
+    background-color: var(--cor-principal);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+#btn-tema:hover {
+    background-color: var(--cor-destaque);
+}
+
+/* Página de Projetos - O CSS GRID (Exigência de Design Moderno) */
+.grid-projetos {
+    display: grid;
+    /* Cria colunas que se ajustam sozinhas com tamanho mínimo de 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #FFFFFF;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--cor-principal);
+    transition: transform 0.3s ease;
+}
+
+/* Efeito sutil ao passar o mouse nos cards de projetos */
+.card:hover {
+    transform: translateY(-5px);
+    border-top-color: var(--cor-destaque);
+}
+
+.tag-categoria {
+    background-color: #EBF5FB;
+    color: var(--cor-destaque);
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+
+/* Estilização da Foto de Perfil */
+.foto-perfil-container {
+    text-align: center; /* Centraliza a foto na tela */
+    margin-bottom: 25px;
+}
+
+.foto-perfil {
+    width: 180px;      /* Define uma largura fixa ideal */
+    height: 180px;     /* Define uma altura idêntica para manter o quadrado perfeito */
+    object-fit: cover; /* Faz a foto se ajustar ao círculo sem distorcer ou esticar */
+    border-radius: 50%; /* Transforma o quadrado em um círculo perfeito */
+    border: 4px solid var(--cor-principal); /* Adiciona uma borda elegante com a cor do site */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Um efeito sutil de sombra ao redor da foto */
+}
+
+/* ==========================================================================
+   5. FORMULÁRIO DE CONTATO E VALIDAÇÃO
+   ========================================================================== */
+form {
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.campo-grupo {
+    margin-bottom: 20px;
+}
+
+.campo-grupo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--cor-principal);
+}
+
+.campo-grupo input, .campo-grupo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Destaque visual quando o usuário clica no campo */
+.campo-grupo input:focus, .campo-grupo textarea:focus {
+    border-color: var(--cor-destaque);
+}
+
+/* Estilo do botão de envio */
+#btn-enviar {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--cor-destaque);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#btn-enviar:hover {
+    background-color: #2980B9;
+}
+
+/* Mensagens de Erro geradas pelo JavaScript */
+.erro-mensagem {
+    color: var(--cor-erro);
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500;
+}
+
+/* Mensagem de Sucesso gerada pelo JavaScript */
+.sucesso-visivel {
+    background-color: #E8F8F5;
+    color: var(--cor-sucesso);
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid var(--cor-sucesso);
+}
+
+.sucesso-oculto {
+    display: none;
+}
+
+/* Classe auxiliar que o JS vai injetar para o Dark Mode */
+body.dark-mode {
+    --cor-fundo: #121212;
+    --cor-texto: #E0E0E0;
+    background-color: var(--cor-fundo);
+}
+
+body.dark-mode .hero, body.dark-mode .card, body.dark-mode form {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+}
+
+body.dark-mode .hero h1, body.dark-mode .campo-grupo label {
+    color: #FFFFFF;
+}
+
+body.dark-mode .campo-grupo input, body.dark-mode .campo-grupo textarea {
+    background-color: #2D2D2D;
+    border-color: #444;
+    color: #FFFFFF;
+}
+
+
+/* ==========================================================================
+   6. DESIGN RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Quando a tela do dispositivo for menor ou igual a 768px (Tablets e Celulares) */
+@media (max-width: 768px) {
+    
+    /* Altera o topo: a logo fica em cima e o menu vai para baixo */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    /* Transforma o menu horizontal em uma lista vertical bem espaçada */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 8px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Reduz o tamanho dos textos grandes para não estourarem a tela do celular */
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    /* Ajusta os espaçamentos das páginas no ambiente móvel */
+    .container {
+        margin: 20px auto;
+    }
+    
+    form {
+        padding: 20px;
+    }
+}
+
